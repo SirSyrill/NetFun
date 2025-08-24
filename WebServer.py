@@ -3,6 +3,11 @@ from socket import *
 serverSocket = socket(AF_INET, SOCK_STREAM)
 #Prepare a sever socket
 #Fill in start
+serverPort = 6789  # note: this can be changed if needed
+serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+serverSocket.bind(('', serverPort))
+serverSocket.listen(1)
+print(f"Listening on http://localhost:{serverPort}")
 #Fill in end
 while True:
 #Establish the connection
