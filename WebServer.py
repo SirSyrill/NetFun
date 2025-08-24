@@ -16,10 +16,15 @@ while True:
     connectionSocket, addr = serverSocket.accept()           
      #Fill in end
     try:
-        message = #Fill in start #Fill in end
-        filename = message.split()[1]
+        message = #Fill in start
+        connectionsocket.recv(290).decode() 
+        print("recieve request :/n", message)
+        #Fill in end
+        filename = message.split()1
         f = open(filename[1:])
-        outputdata = #Fill in start #Fill in end
+        outputdata = #Fill in start
+        f.read()
+        #Fill in end
 
         #Send one HTTP header line into socket
         #Fill in start
