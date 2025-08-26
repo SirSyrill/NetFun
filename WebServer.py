@@ -18,7 +18,7 @@ while True:
     connectionSocket, addr = serverSocket.accept()      #Fill in start   #Fill in end     
     try:
         message = connectionSocket.recv(1024).decode()  #Fill in start   #Fill in end
-        print("receive request :/n", message)
+        print("receive request :\n", message)
         filename = message.split()[1]
         f = open(filename[1:])
         outputdata = f.read() #Fill in start   #Fill in end  
