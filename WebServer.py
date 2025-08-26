@@ -18,6 +18,11 @@ while True:
     connectionSocket, addr = serverSocket.accept()      #Fill in start   #Fill in end     
     try:
         message = connectionSocket.recv(1024).decode()  #Fill in start   #Fill in end
+        
+        if not message or not message.strip(): #safeguards against empty requests
+            connectionSocket.close()
+            continue
+
         print("receive request :\n", message)
         filename = message.split()[1]
         f = open(filename[1:])
@@ -25,7 +30,7 @@ while True:
 
         #Send one HTTP header line into socket
         #Fill in start
-        connectionSocket.send("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n".encode()) #was missing content type and another set opf \r\n at the end
+        connectionSocket.send("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nConnection: close\r\n\r\n".encode()) #was missing content type and another set opf \r\n at the end
         #Fill in end
 
 
